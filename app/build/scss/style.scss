@@ -41,6 +41,13 @@ body {
 
 
   background-color: rgb(103,75,177);
+  background-image: url('../../src/assets/images/bg-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  @media (min-width: $breakpoint-2) {
+    background-image: url('../../src/assets/images/bg-desktop.svg');
+  }
 
   /* || HEADER */
   .header {
@@ -106,6 +113,7 @@ body {
 
     .jumbotron {
       grid-column: 2 / 3;
+      max-width: 710px;
 
       img {
         max-width: 100%;
