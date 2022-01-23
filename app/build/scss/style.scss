@@ -3,12 +3,18 @@
 /* | Vars*/
 $h-header: minmax(200px, auto);
 $h-main: 1fr;
-$h-footer: minmax(40px, auto);
+$h-footer: minmax(20px, auto);
 
 $w-col-1: 1210px;
 
 $breakpoint-1: 760px;
 $breakpoint-2: 992px;
+
+$color-dark: hsl(257, 40%, 49%);
+$color-soft: hsl(300, 69%, 71%);
+
+$w-mobile: 375px;
+$w-desktop: 1440px;
 
 
 /* | Mixins */
@@ -40,7 +46,7 @@ body {
     "footer";
 
 
-  background-color: rgb(103,75,177);
+  background-color: $color-dark;
   background-image: url('../../src/assets/images/bg-mobile.svg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,7 +113,7 @@ body {
         align-items: center;
         row-gap: normal;
 
-        //padding: max(10vh, 30px) 15px 30px 15px;
+
         align-self: center;
     }
 
@@ -193,10 +199,20 @@ body {
 
 
         background-color: #fff;
-        color: rgb(103,75,177);
+        color: $color-dark;
         letter-spacing: .03rem;
 
         border-radius: 32px;
+
+        box-shadow: 3px 3px 25px .5px rgb(0, 0, 0);
+
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+          background-color: $color-soft;
+          color: #fff;
+          cursor: pointer;
+        }
 
         @media (min-width: $breakpoint-2) {
           align-self: start;
@@ -230,10 +246,19 @@ body {
         height: 32px;
 
 
-        background-color: rgb(103,75,177);
+        background-color: $color-dark;
 
         border: 1px solid #fff;
         border-radius: 50%;
+
+        &:hover {
+          border-color: $color-soft;
+          cursor: pointer;
+
+          i {
+            color: $color-soft;
+          }
+        }
 
         i {
           color: #fff;
