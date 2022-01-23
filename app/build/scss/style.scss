@@ -1,15 +1,15 @@
 @import './nullify.scss';
-@import './vars.scss';
-@import './mixins.scss';
 
 /* | Vars*/
-$h-header: minmax(100px, auto);
+$h-header: minmax(200px, auto);
 $h-main: 1fr;
-$h-footer: minmax(70px, auto);
+$h-footer: minmax(40px, auto);
 
-$w-col-1: 1300px;
+$w-col-1: 1210px;
 
-$breakpoint-1: 992px;
+$breakpoint-1: 760px;
+$breakpoint-2: 992px;
+
 
 /* | Mixins */
 @mixin grid-layout-section {
@@ -23,11 +23,7 @@ $breakpoint-1: 992px;
 body {
   font-family: sans-serif;
 }
-/* | Common */
-.container {
-  max-width: 1024px;
-  margin: 0px auto;
-}
+
 /* | Page */
 .wrapper {
   min-height: 100vh;
@@ -53,9 +49,6 @@ body {
     align-items: center;
 
     padding: 15px;
-
-    
-    background-color: sienna;
 
     &__logo {
       grid-column: 2 / 3;
@@ -94,24 +87,25 @@ body {
       auto
       auto
       auto
-      / 1fr minmax(auto, 1300px) 1fr;
-      //column-gap: 20px;//
+      / 1fr minmax(auto, $w-col-1) 1fr;
       row-gap: 75px;
+      justify-items: center;
 
-    //background-color: rgb(52,51,52);
-
-    @media (min-width: $breakpoint-1) {
-      //@include grid-layout-section;
+    @media (min-width: $breakpoint-2) {
       grid-template: 
-        1fr
-        auto
-        / 1fr minmax(auto, 650px) minmax(auto, 650px) 1fr;
+        minmax(auto, 485.95px) 
+        minmax(auto, 54.08px)
+        / 1fr minmax(auto, 710px) minmax(auto, 500px) 1fr;
+        justify-items: start;
+        align-items: center;
+        row-gap: normal;
+
+        //padding: max(10vh, 30px) 15px 30px 15px;
+        align-self: center;
     }
 
     .jumbotron {
       grid-column: 2 / 3;
-
-      max-width: 615px;
 
       img {
         max-width: 100%;
@@ -121,38 +115,73 @@ body {
       grid-row: 2;
       grid-column: 2 / 3;
 
-      @media (min-width: $breakpoint-1) {
+      display: flex;
+      flex-direction: column;
+
+
+      letter-spacing: .03rem;
+
+      @media (min-width: $breakpoint-2) {
         grid-row: 1;
         grid-column: 3 / 4;
   
   
-        padding: 0px 0px 0px 30px;
+        padding: 0px 0px 80px 30px;
       }
 
       &__title {
-        margin: 0px 0px 20px 0;
+        margin: 0px 0px 23px 0;
 
 
         color: #fff;
         font-size: 1.8rem;
         font-weight: 600;
         text-align: center;
+        line-height: 2.7rem;
+
+        @media (min-width: $breakpoint-1) {
+          max-width: 368px;
+
+          align-self: center;
+        }
+
+        @media (min-width: $breakpoint-2) {
+          align-self: start;
+
+
+          text-align: left;
+        }
       }
 
       &__text {
-        margin: 0px 0px 20px 0;
+        margin: 0px 0px 23px 0;
+
+        padding: 0px 20px;
 
 
         color: #fff;
         text-align: center;
-        letter-spacing: .03rem;
+        line-height: 1.6rem;
+
+        @media (min-width: $breakpoint-1) {
+          max-width: 462px;
+
+          padding: 0;
+
+          align-self: center;
+        }
+
+        @media (min-width: $breakpoint-2) {
+          align-self: start;
+          text-align: left;
+        }
       }
 
       &__btn {
         display: block;
 
-        margin: 0 auto;
-        padding: 11px 59px;
+        align-self: center;
+        padding: 11px 68px;
 
 
         background-color: #fff;
@@ -160,13 +189,19 @@ body {
         letter-spacing: .03rem;
 
         border-radius: 32px;
+
+        @media (min-width: $breakpoint-2) {
+          align-self: start;
+
+          padding: 18px 59px;
+        }
       }
     }
     .aside {   
       grid-row: 3;
       grid-column: 2 / 3;
 
-      @media (min-width: $breakpoint-1) {
+      @media (min-width: $breakpoint-2) {
         grid-row: 2;
         grid-column: 3 / 4;
         justify-self: end;
@@ -203,8 +238,11 @@ body {
   .footer {
     grid-area: footer;
 
-    @include grid-layout-section;
-
+    display: grid;
+    grid-template:
+      1fr
+      1fr
+      / 1fr;
     align-items: center;
 
     padding: 15px;
@@ -213,38 +251,14 @@ body {
     background-color: #77608d;
     color: whitesmoke;
     font-size: .5rem;
-
-    @media (max-width: 550px) {
-      grid-template:
-        1fr
-        1fr
-        / 1fr;
-
-
-      text-align: center;
-    }
+    text-align: center;
 
     &__copy {
-      @media (min-width: 550px) {
-        grid-column: 2 / 3;
-      }
-
-      @media (max-width: 550px) {
-        order: 2;
-      }
+      order: 2;
     }
 
     &__text {
-      @media (min-width: 550px) {
-        grid-column: 3 / 4;
-        
-
-        text-align: right;
-      }
-
-      @media (max-width: 550px) {
-        order: 1;
-      }
+      order: 1;
 
       a {
         color: rgb(104, 11, 11);
