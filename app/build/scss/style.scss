@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600&display=swap");
+
 @import './nullify.scss';
 
 /* | Vars*/
@@ -83,6 +85,7 @@ body {
 
       &__name {
         color: white;
+        font-family: 'Poppins', sans-serif;
         font-size: 3rem;
         font-weight: 600;
       }
@@ -133,7 +136,7 @@ body {
       flex-direction: column;
 
 
-      letter-spacing: .03rem;
+      letter-spacing: .01rem;
 
       @media (min-width: $breakpoint-2) {
         grid-row: 1;
@@ -148,6 +151,7 @@ body {
 
 
         color: #fff;
+        font-family: 'Poppins', sans-serif;
         font-size: 1.8rem;
         font-weight: 600;
         text-align: center;
@@ -174,11 +178,12 @@ body {
 
 
         color: #fff;
+        font-family: 'Open Sans', sans-serif;
         text-align: center;
         line-height: 1.6rem;
 
         @media (min-width: $breakpoint-1) {
-          max-width: 462px;
+          max-width: 565px;
 
           padding: 0;
 
@@ -200,6 +205,7 @@ body {
 
         background-color: #fff;
         color: $color-dark;
+        font-family: 'Open Sans', sans-serif;
         letter-spacing: .03rem;
 
         border-radius: 32px;
